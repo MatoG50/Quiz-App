@@ -1,15 +1,18 @@
+import { Heading, Input } from '@chakra-ui/react';
 import './App.css';
-import Card from './Card';
+import MyCard from './MyCard';
 
 function App() {
   return (
     <>
       <div className='header'>
-        <h1>Quizes</h1>
-        <input placeholder='search...' />
+        <Heading className='quiz'>Quiz</Heading>
+        <Input placeholder='...search' width='300px' />
       </div>
-      <div className='cards'>
-        <Card />
+      <div className='body'>
+        <MyCard />
+        <MyCard />
+        <MyCard />
       </div>
     </>
   );

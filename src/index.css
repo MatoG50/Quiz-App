@@ -1,9 +1,16 @@
 .header {
   display: flex;
   align-items: center;
-  text-align: center;
+  margin-bottom: 30px;
 }
-
-h1 {
+.quiz {
   margin-right: 30px;
+}
+.stack {
+  text-align: left;
+}
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
