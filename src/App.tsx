@@ -1,6 +1,7 @@
 import { Heading, Input } from '@chakra-ui/react';
 import './App.css';
 import MyCard from './MyCard';
+import jsonData from '../src/assets/quizes.json';
 
 function App() {
   return (
@@ -10,9 +11,7 @@ function App() {
         <Input placeholder='...search' width='300px' />
       </div>
       <div className='body'>
-        <MyCard />
-        <MyCard />
-        <MyCard />
+        <MyCard data={jsonData} />
       </div>
     </>
   );

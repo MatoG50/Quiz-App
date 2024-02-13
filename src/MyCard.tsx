@@ -1,30 +1,41 @@
-import {
-  Card,
-  CardBody,
-  Image,
-  Stack,
-  Heading,
-  Text,
-  Divider,
-} from '@chakra-ui/react';
+import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
 
-const MyCard = () => {
+interface Subject {
+  id: number;
+  img: string;
+  name: string;
+  questions: Question[];
+}
+
+interface Question {
+  id: number;
+  text: string;
+  options: Option[];
+}
+interface Option {
+  id: number;
+  label: string;
+  text: string;
+  isCorrect: boolean;
+}
+interface Quiz {
+  data: Subject[];
+}
+
+const MyCard: React.FC<Quiz> = ({ data }) => {
   return (
     <>
-      <Card maxW='sm'>
-        <CardBody>
-          <Image
-            src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-            alt='Green double couch with wooden legs'
-            borderRadius='lg'
-          />
-          <Stack mt='3' spacing='3' className='stack'>
-            <Heading size='md'>Math</Heading>
-            <Text>3 questions</Text>
-          </Stack>
-        </CardBody>
-        <Divider />
-      </Card>
+      {data.map(subject => (
+        <Card maxW='sm' className='card' key={subject.id}>
+          <CardBody>
+            <Image src={subject.img} alt={subject.name} borderRadius='lg' />
+            <Stack mt='3' spacing='3' className='stack'>
+              <Heading size='md'>{subject.name}</Heading>
+              <Text>{subject.questions.length} questions</Text>
+            </Stack>
+          </CardBody>
+        </Card>
+      ))}
     </>
   );
 };
