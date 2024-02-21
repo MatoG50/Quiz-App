@@ -11,7 +11,7 @@ function App() {
     setSelectedSubject(value);
   };
   const visibleSubject = jsonData.filter(subject =>
-    subject.name.toLowerCase().includes(selectedSubject.toLowerCase())
+    subject.name.toLowerCase().includes(selectedSubject.trim().toLowerCase())
   );
 
   return (
