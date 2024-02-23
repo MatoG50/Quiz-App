@@ -4,7 +4,7 @@ import Quiz from './Quiz';
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
-  { path: '/quiz/:id', element: <Quiz /> },
+  { path: '/quiz/:id/question/:questionId', element: <Quiz /> },
 ]);
 
 export default router;

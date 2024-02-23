@@ -1,7 +1,7 @@
 import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-interface Subject {
+export interface Subject {
   id: number;
   img: string;
   name: string;
@@ -34,7 +34,7 @@ const MyCard: React.FC<Quiz> = ({ data }) => {
           padding='0'
           borderRadius='lg'
         >
-          <Link to={`/quiz/${subject.id}`}>
+          <Link to={`/quiz/${subject.id}/question/1`}>
             <Image src={subject.img} alt={subject.name} />
             <CardBody>
               <Stack mt='3' spacing='3' className='stack'>
