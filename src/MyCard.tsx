@@ -13,7 +13,7 @@ interface Question {
   text: string;
   options: Option[];
 }
-interface Option {
+export interface Option {
   id: number;
   label: string;
   text: string;
