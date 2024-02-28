@@ -16,32 +16,29 @@ const Quiz = () => {
   if (!question)
     return (
       <div>
-        score{' '}
-        <span>
+        <Text>Your results</Text>
+        <span className='span'>
           {score}/{subject.questions.length}
         </span>
-        <Link to='/'>Home</Link>
+        <br />
+        <Link to='/'>Go Back</Link>
       </div>
     );
-
-  // const handleAnswerClick = isCorrect => {
-  //   setCurrQuestionIndex(currQuestionIndex + 1);
-  //   if (isCorrect) {
-  //     setScore(score + 1);
-  //   }
-  // };
 
   return (
     <>
       <div className='quiz-body'>
-        <Heading>
+        <Heading className='heading'>
           Question{' '}
           <span>{`${currQuestionIndex + 1}/${subject.questions.length}`}</span>
         </Heading>
-        <Text fontSize='3xl'>{question.text}</Text>
+        <Text className='question' fontSize='3xl'>
+          {question.text}
+        </Text>
         {question.options.map(option => (
           <ul key={option.id}>
             <li
+              className='qstndiv'
               onClick={() => {
                 setCurrQuestionIndex(currQuestionIndex + 1);
                 if (option.isCorrect) {
@@ -49,8 +46,8 @@ const Quiz = () => {
                 }
               }}
             >
-              <span>{option.label}</span>
-              <p>{option.text}</p>
+              <span className='left'>{option.label}</span>
+              <p className='right'>{option.text}</p>
             </li>
           </ul>
         ))}
