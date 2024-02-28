@@ -37,7 +37,7 @@ const MyCard: React.FC<Quiz> = ({ data }) => {
           <Link to={`/quiz/${subject.id}/question/1`}>
             <Image src={subject.img} alt={subject.name} />
             <CardBody>
-              <Stack mt='3' spacing='3' className='stack'>
+              <Stack className='stack'>
                 <Heading size='md'>{subject.name}</Heading>
                 <Text>{subject.questions.length} questions</Text>
               </Stack>

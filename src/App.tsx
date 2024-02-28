@@ -16,15 +16,17 @@ function App() {
 
   return (
     <>
-      <div className='header'>
-        <Heading className='quiz'>Quiz</Heading>
-        <QuizFilter
-          searchText={selectedSubject}
-          onSelectSubject={handleSearchChange}
-        />
-      </div>
-      <div className='body'>
-        <MyCard data={visibleSubject} />
+      <div className='container'>
+        <div className='header'>
+          <Heading className='quiz'>Quiz</Heading>
+          <QuizFilter
+            searchText={selectedSubject}
+            onSelectSubject={handleSearchChange}
+          />
+        </div>
+        <div className='body'>
+          <MyCard data={visibleSubject} />
+        </div>
       </div>
     </>
   );
