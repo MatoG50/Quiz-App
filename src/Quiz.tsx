@@ -5,13 +5,15 @@ import { useState } from 'react';
 
 const Quiz = () => {
   const { id, questionId } = useParams();
-  const [currQuestionIndex, setCurrQuestionIndex] = useState(0);
+  const [currQuestionIndex, setCurrQuestionIndex] = useState(
+    Number(questionId)
+  );
   const [score, setScore] = useState(0);
 
   const subject = jsonData.find(subject => subject.id === Number(id));
   if (!subject) return <div>Not Found</div>;
 
-  const question = subject.questions[currQuestionIndex];
+  const question = subject.questions[currQuestionIndex - 1];
 
   if (!question)
     return (
@@ -30,7 +32,7 @@ const Quiz = () => {
       <div className='quiz-body'>
         <Heading className='heading'>
           Question{' '}
-          <span>{`${currQuestionIndex + 1}/${subject.questions.length}`}</span>
+          <span>{`${currQuestionIndex}/${subject.questions.length}`}</span>
         </Heading>
         <Text className='question' fontSize='3xl'>
           {question.text}
