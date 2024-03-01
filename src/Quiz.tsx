@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Progress, Text } from '@chakra-ui/react';
 import { Link, useParams } from 'react-router-dom';
 import jsonData from '../src/assets/quizes.json';
 import { useState } from 'react';
@@ -27,6 +27,8 @@ const Quiz = () => {
       </div>
     );
 
+  const progress = (currQuestionIndex / subject.questions.length) * 100;
+
   return (
     <>
       <div className='quiz-body'>
@@ -34,7 +36,15 @@ const Quiz = () => {
           Question{' '}
           <span>{`${currQuestionIndex}/${subject.questions.length}`}</span>
         </Heading>
-        <Text className='question' fontSize='3xl'>
+        <Box width='90%' mb={4}>
+          <Progress
+            height='32px'
+            bgColor='orange.100'
+            value={progress}
+            colorScheme='orange'
+          />
+        </Box>
+        <Text className='question' fontSize={{ base: '16px', md: '24px' }}>
           {question.text}
         </Text>
         {question.options.map(option => (
@@ -52,7 +62,7 @@ const Quiz = () => {
               <p className='right'>{option.text}</p>
             </li>
           </ul>
-        ))}
+        ))}{' '}
       </div>
     </>
   );
