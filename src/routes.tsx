@@ -5,7 +5,7 @@ import NotFound from './NotFound';
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
-  { path: '/quiz/:id/question/:questionId', element: <Quiz /> },
+  { path: '/quiz/:id', element: <Quiz /> },
   { path: '*', element: <NotFound /> },
 ]);
 

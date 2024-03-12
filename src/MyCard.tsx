@@ -34,7 +34,7 @@ const MyCard: React.FC<Quiz> = ({ data }) => {
           padding='0'
           borderRadius='lg'
         >
-          <Link to={`/quiz/${subject.id}/question/1`}>
+          <Link to={`/quiz/${subject.id}`}>
             <Image src={subject.img} alt={subject.name} />
             <CardBody>
               <Stack className='stack'>
